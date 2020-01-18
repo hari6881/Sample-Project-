@@ -1,0 +1,23 @@
+def workspace;
+
+{
+    stage('checkout')
+    {
+ 
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ff5097b5-bc4f-4438-a0ad-20f74594aac3', url: 'https://github.com/harish6881/SampleWebApp.git']]])
+
+        wprkspace =pwd()
+    }
+    stage('Static Code Analysis')
+    {
+        echo "Static Code Analysis"
+    }
+    stage ('Unit Testing')
+    {
+        echo "Unit Testing"
+    }
+    satge ('Delivery')
+    {
+        echo "Delivery The Code"
+    }
+}
